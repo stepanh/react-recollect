@@ -8,6 +8,10 @@ let listeners = {
   store: [],
 };
 
+/**
+ *
+ * @type {Array<afterChangeCallback>}
+ */
 const manualListeners = [];
 
 export const getListeners = () => listeners;
@@ -26,6 +30,15 @@ export const addListener = (target, prop) => {
   }
 };
 
+/**
+ * @callback afterChangeCallback
+ * @param {newStore} store - The next version of the store
+ */
+
+/**
+ * Register a callback to be called every time the store is changed
+ * @param {afterChangeCallback} cb - the function to be called when the store is changed
+ */
 export const afterChange = cb => {
   manualListeners.push(cb);
 };
